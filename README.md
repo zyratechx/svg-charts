@@ -1,7 +1,7 @@
 # Svg Charts Builder
 **Chart builder for 1-8 items**
 
-![OUTPUT](output/output.svg)
+![OUTPUT](output/output.png)
 
 # Usage : 
 ## Console Usage : 
@@ -12,6 +12,13 @@
 - Input with extension : `-i input.json`  **Required**
 - Ouput without extension : `-o output`   **Required**
 - Type png : `-t png`                     **Not required**
+
+## Requirement : 
+- Fonts :
+- - Russo one
+- Npm Packages :
+- - Sharp install : `npm install sharp`
+- - Argparser install : `npm install argparse`
 
 ## Exeample Input : 
 ```json
