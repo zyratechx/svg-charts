@@ -15,10 +15,10 @@
 
 ## Requirement : 
 - Fonts :
-- - Russo one
+  - Russo one
 - Npm Packages :
-- - Sharp install : `npm install sharp`
-- - Argparser install : `npm install argparse`
+  - Sharp install : `npm install sharp`
+  - Argparser install : `npm install argparse`
 
 ## Exeample Input : 
 ```json
