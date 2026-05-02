@@ -1,8 +1,12 @@
 # Svg Charts Builder
 **Chart builder for 1-8 items**
-## Usage : 
+
+![OUTPUT](output/output.svg)
+
+# Usage : 
+## Console Usage : 
 - First create `template.json`
-- Second run `app.js` with arguments
+- Second run `node app.js` with arguments
 
 ## Argmunets : 
 - Input with extension : `-i input.json`  **Required**
