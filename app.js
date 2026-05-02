@@ -7,9 +7,10 @@ const parser = new ArgumentParser({
 });
 parser.add_argument('-o', '--output', {required: true})
 parser.add_argument('-i', '--input', {required: true})
+parser.add_argument('-t', '--type')
 
 const args = parser.parse_args();
-const output = args.output;
+const output = args.output + '.svg'
 const template = require('./' + args.input)
 
 function Document() {
@@ -51,20 +52,17 @@ ${renderTexts()}
 
 let numItems = 0;
 let x = 700
-function renderValues() {
-    Object.values(template.page).forEach((items) => {
-        numItems += 1;
-        x = x - 100;
-    });
-    if (numItems > 4) {
-        let m = numItems - 4
-        x = x + (m * 50)
-    }
-    if (numItems === 8) {
-        x = 150
-    }
+Object.values(template.page).forEach((items) => {
+    numItems += 1;
+    x = x - 100;
+});
+if (numItems > 4) {
+    let m = numItems - 4
+    x = x + (m * 50)
 }
-
+if (numItems === 8) {
+    x = 150
+}
 
 function renderLines() {
     let lines_y_position = 0
@@ -96,3 +94,9 @@ if (numItems > 8) {
     fs.writeFileSync(output, Document(), 'utf8');
 }
 console.log("INTEMS:", numItems , "\nPOSITION:", x)
+
+if (args.type === "png") {
+    sharp(output)
+        .png()
+        .toFile(args.output + '.png')
+}
