@@ -91,12 +91,12 @@ function renderTexts() {
 if (numItems > 8) {
     console.log("ERROR 9 IS UNSUPPORTED")
 } else {
-    fs.writeFileSync(output, Document(), 'utf8');
+    fs.writeFileSync('output/' + output, Document(), 'utf8');
 }
 console.log("INTEMS:", numItems , "\nPOSITION:", x)
 
 if (args.type === "png") {
     sharp(output)
         .png()
-        .toFile(args.output + '.png')
+        .toFile('output/' + args.output + '.png')
 }
