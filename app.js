@@ -1,6 +1,16 @@
 const fs = require('fs');
-const template = require('./templates.json');
-const output = 'output.svg'
+const sharp = require('sharp');
+const { ArgumentParser } = require('argparse')
+
+const parser = new ArgumentParser({
+    description: 'svg-chart-builder'
+});
+parser.add_argument('-o', '--output', {required: true})
+parser.add_argument('-i', '--input', {required: true})
+
+const args = parser.parse_args();
+const output = args.output;
+const template = require('./' + args.input)
 
 function Document() {
     return `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -41,22 +51,25 @@ ${renderTexts()}
 
 let numItems = 0;
 let x = 700
-Object.values(template.page).forEach((items) => {
-    numItems += 1;
-    x = x - 100;
-})
-if (numItems > 4) {
-    let m = numItems - 4
-    x = x + (m * 50)
-}
-if (numItems == 8) {
-    x = 150
+function renderValues() {
+    Object.values(template.page).forEach((items) => {
+        numItems += 1;
+        x = x - 100;
+    });
+    if (numItems > 4) {
+        let m = numItems - 4
+        x = x + (m * 50)
+    }
+    if (numItems === 8) {
+        x = 150
+    }
 }
 
-let lines_y_position = 0
-let lines_y2_position = 60
-let linesReturn = ``
+
 function renderLines() {
+    let lines_y_position = 0
+    let lines_y2_position = 60
+    let linesReturn = ``
     Object.values(template.page).forEach((item) => {
         linesReturn = linesReturn + `                <rect y="${lines_y_position}" x="0" width="${item.line1}%" height="60" fill="blue"/><rect y="${lines_y2_position}" x="0" width="${item.line2}%" height="60" fill="rgb(0,0,200)"/>\n`
         lines_y_position = lines_y_position + x
@@ -65,10 +78,10 @@ function renderLines() {
     return linesReturn
 }
 
-let text_y_position = 20
-let text_y2_position = 85
-let textReturn = ``
 function renderTexts() {
+    let text_y_position = 20
+    let text_y2_position = 85
+    let textReturn = ``
     Object.values(template.page).forEach((item) => {
         textReturn = textReturn + `                <text y="${text_y_position}" x="300" text-anchor="middle" dominant-baseline="middle" font-size="70px" font-family="russo one" font-weight="900">${item.name}</text> <text y="${text_y2_position}" x="300" dominant-baseline="middle" text-anchor="middle" font-size="60px" font-family="system-ui">${item.text}</text>\n`
         text_y_position = text_y_position + x
