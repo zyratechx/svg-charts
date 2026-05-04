@@ -144,7 +144,7 @@ if (ararysizex > 16) {
 } else {
     fs.writeFileSync('output/' + output, Document(), 'utf8');
 }
-console.log("INTEMS:", ararysizex , "\nPOSITION:", x)
+console.log("INTEMS:", ararysizex)
 
 if (args.type === "png") {
     sharp('output/' + output)
