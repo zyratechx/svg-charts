@@ -1,5 +1,5 @@
 # Svg Charts Builder
-**Chart builder for 1-8 items**
+**Build charts from 1-16 items**
 
 ![OUTPUT](output/output.png)
 
