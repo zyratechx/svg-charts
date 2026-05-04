@@ -1,4 +1,6 @@
 {
+  "name": "svg-charts",
+  "version": "1.0.0",
   "dependencies": {
     "argparse": "^2.0.1",
     "sharp": "^0.34.5"
