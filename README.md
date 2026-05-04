@@ -1,7 +1,7 @@
 # Svg Charts Builder
 **Chart builder for 1-8 items**
 
-![OUTPUT](output/output. png)
+![OUTPUT](output/output.png)
 
 # Usage : 
 ## Console Usage : 
