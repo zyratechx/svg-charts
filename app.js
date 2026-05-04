@@ -22,8 +22,8 @@ function Document() {
         <rect y="0" x="32.5%" width="35%" height="11%" fill="white" stroke="white" stroke-width="2"/>
         <rect stroke="white" y="94%" x="0%" width="15%" height="6%" fill="none" stroke-width="2"/>
         <text font-weight="900" font-size="55px" y="7%" x="50%" text-anchor="middle" fill="rgb(100,100,100)" font-family ="Russo One">${template.title}</text>
-        <text x="310" y="85" text-anchor="middle" font-family="system-ui" font-size="50px">${template.labels.left}</text>
-        <text x="1600" y="85" text-anchor="middle" font-family="system-ui" font-size="50px">${template.labels.right}</text>
+        <text x="310" y="85" text-anchor="middle" font-family="russo one" font-size="50px">${template.labels.left}</text>
+        <text x="1600" y="85" text-anchor="middle" font-family="russo one" font-size="50px">${template.labels.right}</text>
         <rect stroke="white" y="94%" x="0%" width="100%" height="6%" fill="none" stroke-width="2"/>
         <rect y="0" x="0" width="100%" height="11%" fill="none" stroke="white" stroke-width="2"/>
         <rect stroke="white" y="94%" x="0%" width="100%" height="6%" fill="none" stroke-width="2"/>
@@ -34,7 +34,7 @@ function Document() {
         <rect width="2%" height="3.5%" y="95%" x="17%" fill="blue"/>
         <text y="98%" x="35%" font-family="russo one"  fill="white" font-size="35px">${template.unit.second}</text>
         <rect width="2%" height="3.5%" y="95%" x="32%" fill="rgb(0,0,200)"/>
-        <g transform="translate(380,170) scale(0.7)">
+        <g transform="translate(500,170) scale(0.7)">
             <rect width="100%" height="100%" fill="none"/>
             <g id="lines">
 ${renderLines()}
@@ -81,7 +81,7 @@ function renderTexts() {
     let text_y2_position = 85
     let textReturn = ``
     Object.values(template.page).forEach((item) => {
-        textReturn = textReturn + `                <text y="${text_y_position}" x="300" text-anchor="middle" dominant-baseline="middle" font-size="70px" font-family="russo one" font-weight="900">${item.name}</text> <text y="${text_y2_position}" x="300" dominant-baseline="middle" text-anchor="middle" font-size="60px" font-family="system-ui">${item.text}</text>\n`
+        textReturn = textReturn + `                <text y="${text_y_position}" x="360" text-anchor="middle" dominant-baseline="middle" font-size="70px" font-family="russo one" font-weight="900">${item.name}</text> <text y="${text_y2_position}" x="360" dominant-baseline="middle" text-anchor="middle" font-size="60px" font-family="system-ui">${item.text}</text>\n`
         text_y_position = text_y_position + x
         text_y2_position = text_y2_position + x
     })
@@ -96,7 +96,7 @@ if (numItems > 8) {
 console.log("INTEMS:", numItems , "\nPOSITION:", x)
 
 if (args.type === "png") {
-    sharp('output/' + output)
+    sharp(output)
         .png()
         .toFile('output/' + args.output + '.png')
 }
