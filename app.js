@@ -96,7 +96,7 @@ if (numItems > 8) {
 console.log("INTEMS:", numItems , "\nPOSITION:", x)
 
 if (args.type === "png") {
-    sharp(output)
+    sharp('output/' + output)
         .png()
         .toFile('output/' + args.output + '.png')
 }
