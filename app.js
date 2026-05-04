@@ -139,7 +139,7 @@ function renderTexts() {
     return textReturn
 }
 
-if (ararysizex > 81) {
+if (ararysizex > 16) {
     console.log("ERROR 9 IS UNSUPPORTED")
 } else {
     fs.writeFileSync('output/' + output, Document(), 'utf8');
