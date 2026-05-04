@@ -84,7 +84,6 @@ if (ararysizey < 9) {
     for (let i = 0; i < forToRun; i++) {
         x = x + xAD
         xAD = xAD + 10
-        console.log(x, xAD)
     }
 }
 marginADDS = 0
