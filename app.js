@@ -132,7 +132,7 @@ function renderTexts() {
     let text_y2_position = 85
     let textReturn = ``
     Object.values(template.page).forEach((item) => {
-        textReturn = textReturn + `                <text y="${text_y_position + marginADDS}" x="500" text-anchor="middle" dominant-baseline="middle" font-size="70px" font-family="russo one" font-weight="900">${item.name}</text> <text y="${text_y2_position + marginADDS}" x="360" dominant-baseline="middle" text-anchor="middle" font-size="60px" font-family="system-ui">${item.text}</text>\n`
+        textReturn = textReturn + `                <text y="${text_y_position + marginADDS}" x="500" text-anchor="middle" dominant-baseline="middle" font-size="70px" font-family="russo one" font-weight="900">${item.name}</text> <text y="${text_y2_position + marginADDS}" x="500" dominant-baseline="middle" text-anchor="middle" font-size="60px" font-family="system-ui">${item.text}</text>\n`
         text_y_position = text_y_position + x
         text_y2_position = text_y2_position + x
     })
